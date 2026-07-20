@@ -3,19 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mintello — KI-Kolleginnen für Pflege &amp; Praxis</title>
-<meta name="description" content="Klara plant Ihre Dienste, Tina nimmt Ihre Anrufe an, Rosi plant Ihre Touren. Persönlich betreute KI-Assistentinnen für Pflegeheime, Arztpraxen und ambulante Pflegedienste — entwickelt in Baden-Württemberg, DSGVO-konform in Deutschland gehostet.">
+<title>Mintello — KI-Kolleginnen für die Pflege</title>
+<meta name="description" content="Klara plant Ihre Dienste, Rosi plant Ihre Touren. Persönlich betreute KI-Assistentinnen für Pflegeheime und ambulante Pflegedienste — entwickelt in Baden-Württemberg, DSGVO-konform in Deutschland gehostet.">
 
 <!--
   BILDER — Status:
   ✔ juergen-hering.jpg liegt bereits bei (Gründerfoto, im Trust-Bereich eingebaut).
-  ✘ Noch offen: drei Fotos von Klara, Tina und Rosi mit exakt diesen Dateinamen
+  ✘ Noch offen: zwei Fotos von Klara und Rosi mit exakt diesen Dateinamen
     in denselben Ordner wie diese index.html legen:
     klara-foto.jpg
-    tina-foto.jpg
     rosi-foto.jpg
   Sobald die Dateien da sind, ersetzen sie automatisch die Platzhalter-Silhouetten
-  in den jeweiligen Karten (Klara → klara-foto.jpg, Tina → tina-foto.jpg, Rosi → rosi-foto.jpg).
+  in den jeweiligen Karten (Klara → klara-foto.jpg, Rosi → rosi-foto.jpg).
   Empfohlenes Format: Hochkant, mind. 800×1000px, JPG oder PNG.
 -->
 
@@ -33,7 +32,6 @@
     --brass-light:#D9C9A3;
     --brass-dark:#8A6A3C;
     --klara:#3E8ED9;
-    --tina:#2FB6A8;
     --rosi:#8B3A3A;
     --logo-ink:#12302B;
     --ink-70:rgba(15,36,56,.72);
@@ -251,7 +249,6 @@
   .t-who{ font-family:var(--serif); font-weight:600; font-size:19px; margin:6px 0 4px; }
   .t-what{ color:var(--ink-70); font-size:15.5px; max-width:520px; }
   .tag-klara{ color:var(--klara); }
-  .tag-tina{ color:var(--tina); }
   .tag-rosi{ color:var(--rosi); }
 
   /* ===== PROBLEM ===== */
@@ -275,7 +272,7 @@
   }
   .problem-card p{ color:var(--ivory-70); margin-top:12px; font-size:15px; }
 
-  /* ===== TEAM (Klara/Tina/Rosi Portraits) ===== */
+  /* ===== TEAM (Klara/Rosi Portraits) ===== */
   .team{ background:var(--ivory); padding:110px 0; }
   .team-grid{
     display:grid; grid-template-columns:repeat(3,1fr); gap:44px; margin-top:20px;
@@ -323,7 +320,6 @@
     margin-top:8px; display:block;
   }
   .team-card[data-c="klara"] .role{ color:var(--klara); }
-  .team-card[data-c="tina"] .role{ color:var(--tina); }
   .team-card[data-c="rosi"] .role{ color:var(--rosi); }
   .team-card p.desc{ color:var(--ink-70); font-size:15px; margin-top:14px; }
   .team-card .cta{
@@ -437,7 +433,6 @@
   .demo-link .who{ display:flex; align-items:center; gap:12px; }
   .dot{ width:9px; height:9px; border-radius:50%; }
   .dot-klara{ background:var(--klara); }
-  .dot-tina{ background:var(--tina); }
   .dot-rosi{ background:var(--rosi); }
   .direct-mail{ margin-top:28px; font-size:14.5px; color:var(--ink-70); }
   .direct-mail a{ color:var(--ink); font-weight:600; text-decoration:underline; }
@@ -506,9 +501,9 @@
         <div class="logo-tagline">Digitale Lösungen. Echter Erfolg.</div>
       </div>
     </div>
-    <div class="eyebrow" style="justify-content:center; display:flex;">KI-Kolleginnen für Pflege &amp; Praxis</div>
+    <div class="eyebrow" style="justify-content:center; display:flex;">KI-Kolleginnen für die Pflege</div>
     <h1>Damit Ihre Pflegekräfte wieder <em>pflegen</em> können — nicht verwalten.</h1>
-    <p class="lead">Klara plant Ihre Dienste. Tina nimmt Ihre Anrufe an. Rosi plant Ihre Touren. Drei KI-Kolleginnen, persönlich betreut von jemandem mit über 10 Jahren Erfahrung in Softwarebetreuung und Support — entwickelt in Baden-Württemberg, DSGVO-konform in Deutschland gehostet.</p>
+    <p class="lead">Klara plant Ihre Dienste. Rosi plant Ihre Touren. Zwei KI-Kolleginnen, persönlich betreut von jemandem mit über 10 Jahren Erfahrung in Softwarebetreuung und Support — entwickelt in Baden-Württemberg, DSGVO-konform in Deutschland gehostet.</p>
     <div class="cta-row">
       <a class="btn btn-brass" href="#kontakt">Persönliche Demo vereinbaren →</a>
       <a class="btn btn-outline" href="#produkte">Produkte entdecken</a>
@@ -522,18 +517,13 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow">Ein Tag im Pflegealltag</div>
-      <h2>Vier Momente, in denen Mintello bereits arbeitet, während Sie sich um Wichtigeres kümmern.</h2>
+      <h2>Drei Momente, in denen Mintello bereits arbeitet, während Sie sich um Wichtigeres kümmern.</h2>
     </div>
     <div class="timeline">
       <div class="t-item reveal">
         <div class="t-time">06:00 Uhr</div>
         <div class="t-who tag-klara">Klara</div>
         <div class="t-what">Frühdienst steht. Ein nächtlicher Ausfall wurde erkannt, ein Vorschlag liegt bereits zur Freigabe bei der PDL.</div>
-      </div>
-      <div class="t-item reveal">
-        <div class="t-time">09:00 Uhr</div>
-        <div class="t-who tag-tina">Tina</div>
-        <div class="t-what">Das Praxistelefon läuft weiter, auch wenn gerade alle Leitungen im Sprechzimmer belegt sind.</div>
       </div>
       <div class="t-item reveal">
         <div class="t-time">13:30 Uhr</div>
@@ -608,26 +598,6 @@
         </div>
       </div>
 
-      <!-- TINA -->
-      <div class="team-card reveal" data-c="tina">
-        <div class="portrait">
-          <div class="silhouette">
-            <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="40" r="22" stroke="#B08D57" stroke-width="1.2"/>
-              <path d="M12 118c4-30 24-46 38-46s34 16 38 46" stroke="#B08D57" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <img src="tina-foto.jpg" alt="Tina, KI-Kollegin für Telefonassistenz" onerror="this.style.display='none'">
-          <span class="role-tag">Telefonassistenz</span>
-        </div>
-        <div class="body">
-          <h3>Tina</h3>
-          <span class="role">Für Arztpraxen</span>
-          <p class="desc">Sie bekommen eine Praxis, in der keine Terminanfrage mehr in einer verlorenen Patientin endet — auch wenn morgens um acht alle Leitungen gleichzeitig klingeln.</p>
-          <a class="cta" href="https://cal.meetergo.com/jurgen-hering/tina-demo-gesprach">Tina-Demo vereinbaren →</a>
-        </div>
-      </div>
-
       <!-- ROSI -->
       <div class="team-card reveal" data-c="rosi">
         <div class="portrait">
@@ -696,7 +666,7 @@
         <div class="eyebrow">Ihr Ansprechpartner</div>
         <h3>Jürgen Hering</h3>
         <span class="role">Gründer &amp; technische Betreuung, Mintello</span>
-        <p class="bio">Über 10 Jahre Erfahrung in Softwarebetreuung und Support — heute persönlich verantwortlich für Klara, Tina und Rosi. Wenn Sie anrufen, sprechen Sie mit derselben Person, die die Software auch baut und im laufenden Betrieb betreut. Kein Callcenter, kein Wechsel des Ansprechpartners.</p>
+        <p class="bio">Über 10 Jahre Erfahrung in Softwarebetreuung und Support — heute persönlich verantwortlich für Klara und Rosi. Wenn Sie anrufen, sprechen Sie mit derselben Person, die die Software auch baut und im laufenden Betrieb betreut. Kein Callcenter, kein Wechsel des Ansprechpartners.</p>
       </div>
     </div>
   </div>
@@ -774,36 +744,36 @@
           <a class="demo-link" href="https://cal.meetergo.com/jurgen-hering/klara-vorstellung">
             <span class="who"><span class="dot dot-klara"></span>Klara — Dienstplanung</span> →
           </a>
-          <a class="demo-link" href="https://cal.meetergo.com/jurgen-hering/tina-demo-gesprach">
-            <span class="who"><span class="dot dot-tina"></span>Tina — Telefonassistenz</span> →
-          </a>
           <a class="demo-link" href="https://cal.meetergo.com/jurgen-hering/rosi-kennenlernen">
             <span class="who"><span class="dot dot-rosi"></span>Rosi — Tourenplanung</span> →
           </a>
         </div>
         <p class="direct-mail">Oder direkt schreiben: <a href="mailto:info@mintello.de">info@mintello.de</a></p>
+        <p class="direct-mail"><a href="demo.html">Lieber erst selbst reinklicken? Klara-Demo live ansehen →</a></p>
       </div>
 
-      <form class="frm reveal" onsubmit="event.preventDefault();">
+      <form class="frm reveal" id="kontaktForm" action="https://formspree.io/f/xgogoear" method="POST">
         <label for="name">Name*</label>
-        <input id="name" type="text" required>
+        <input id="name" name="name" type="text" required>
 
         <label for="email">E-Mail*</label>
-        <input id="email" type="email" required>
+        <input id="email" name="email" type="email" required>
 
         <label for="einrichtung">Einrichtung</label>
-        <input id="einrichtung" type="text">
+        <input id="einrichtung" name="einrichtung" type="text">
 
         <label for="interesse">Interesse an</label>
-        <select id="interesse">
+        <select id="interesse" name="interesse">
           <option>Klara — Dienstplanung</option>
-          <option>Tina — Telefonassistenz</option>
           <option>Rosi — Tourenplanung</option>
           <option>Noch unklar</option>
         </select>
 
         <label for="nachricht">Nachricht</label>
-        <textarea id="nachricht"></textarea>
+        <textarea id="nachricht" name="nachricht"></textarea>
+
+        <input type="hidden" name="quelle" value="Website Kontaktformular">
+        <input type="hidden" name="_subject" value="Neue Anfrage über mintello.de">
 
         <div class="consent">
           <input type="checkbox" id="consent" required>
@@ -811,10 +781,46 @@
         </div>
 
         <button class="btn btn-brass" type="submit">Anfrage senden</button>
+        <p class="form-status" id="formStatus" style="display:none; margin-top:12px;"></p>
       </form>
     </div>
   </div>
 </section>
+
+<script>
+  const kontaktForm = document.getElementById('kontaktForm');
+  const formStatus = document.getElementById('formStatus');
+  if (kontaktForm) {
+    kontaktForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const submitBtn = kontaktForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wird gesendet …';
+      try {
+        const response = await fetch(kontaktForm.action, {
+          method: 'POST',
+          body: new FormData(kontaktForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          kontaktForm.reset();
+          kontaktForm.style.display = 'none';
+          formStatus.style.display = 'block';
+          formStatus.style.color = '#2E7D32';
+          formStatus.textContent = 'Danke für Ihre Anfrage! Wir melden uns in Kürze bei Ihnen.';
+        } else {
+          throw new Error('Formular konnte nicht gesendet werden.');
+        }
+      } catch (err) {
+        formStatus.style.display = 'block';
+        formStatus.style.color = '#B00020';
+        formStatus.textContent = 'Leider ist etwas schiefgelaufen. Bitte schreiben Sie uns direkt an info@mintello.de.';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Anfrage senden';
+      }
+    });
+  }
+</script>
 
 <!-- ============ FOOTER ============ -->
 <footer class="site">

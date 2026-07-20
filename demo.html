@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klara live testen — Mintello</title>
+<style>
+  :root{
+    --navy:#16233F; --gold:#C9A227; --cream:#FAF8F4; --ink:#1C1B19; --gray:#5C6472; --line:#E3E1DA;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color:var(--ink); background:#fff; -webkit-font-smoothing:antialiased;
+  }
+  .gate-wrap{
+    min-height:100vh; display:flex; align-items:center; justify-content:center; padding:40px 20px;
+    background:linear-gradient(160deg, #E8EDF6 0%, #F6F4EE 50%, #FFFFFF 100%);
+  }
+  .gate-card{
+    max-width:480px; width:100%; background:#fff; border:1px solid var(--line); border-radius:20px;
+    padding:40px 36px; box-shadow:0 12px 40px rgba(22,35,63,0.08);
+  }
+  .logo{ font-size:22px; font-weight:700; color:var(--navy); margin-bottom:22px; }
+  .gate-card h1{ font-size:26px; font-weight:600; color:var(--navy); letter-spacing:-0.01em; margin-bottom:12px; line-height:1.25; }
+  .gate-card p.sub{ font-size:15px; color:var(--gray); line-height:1.55; margin-bottom:26px; }
+  label{ display:block; font-size:13.5px; font-weight:600; color:var(--navy); margin-bottom:6px; margin-top:16px; }
+  label:first-of-type{ margin-top:0; }
+  input[type=text], input[type=email]{
+    width:100%; padding:13px 14px; border-radius:10px; border:1px solid var(--line);
+    font-size:15px; background:#fff;
+  }
+  input:focus{ outline:2px solid var(--navy); outline-offset:1px; }
+  .btn{
+    width:100%; margin-top:24px; padding:14px 20px; border-radius:10px; border:none;
+    background:var(--navy); color:#fff; font-size:15.5px; font-weight:600; cursor:pointer;
+  }
+  .btn:hover{ background:#0E1830; }
+  .btn:disabled{ opacity:.6; cursor:not-allowed; }
+  .fineprint{ font-size:12px; color:var(--gray); margin-top:14px; line-height:1.5; }
+  .status{ display:none; margin-top:16px; font-size:14px; padding:12px 14px; border-radius:8px; }
+  .status.error{ display:block; background:#FBEAE7; color:#B54A3F; }
+
+  /* Demo view (nach erfolgreicher Freischaltung) */
+  #demoView{ display:none; height:100vh; }
+  #demoView iframe{ width:100%; height:100%; border:none; }
+</style>
+</head>
+<body>
+
+<div class="gate-wrap" id="gateWrap">
+  <div class="gate-card">
+    <div class="logo">MINTELLO</div>
+    <h1>Klara live testen</h1>
+    <p class="sub">Klicken Sie sich durch das echte Klara-Dashboard — Dienstplan, Mitarbeiterliste, Prüfbericht, Bundesland-Regeln. Zum Anschauen, nicht zum Bearbeiten. Für die volle, interaktive Version zeigen wir Ihnen gerne alles live in einem kurzen Termin.</p>
+
+    <form id="gateForm">
+      <label for="name">Name*</label>
+      <input id="name" name="name" type="text" required>
+
+      <label for="email">E-Mail*</label>
+      <input id="email" name="email" type="email" required>
+
+      <input type="hidden" name="quelle" value="Demo-Gate">
+      <input type="hidden" name="_subject" value="Neue Demo-Gate-Anmeldung (Klara)">
+
+      <button class="btn" type="submit" id="gateBtn">Demo jetzt ansehen →</button>
+      <p class="fineprint">Mit dem Absenden erklären Sie sich einverstanden, dass wir Sie zu Klara kontaktieren dürfen. Keine Weitergabe an Dritte.</p>
+      <p class="status" id="gateStatus"></p>
+    </form>
+  </div>
+</div>
+
+<div id="demoView">
+  <iframe src="klara-demo-content.html" title="Klara Demo"></iframe>
+</div>
+
+<script>
+  const gateForm = document.getElementById('gateForm');
+  const gateStatus = document.getElementById('gateStatus');
+  const gateWrap = document.getElementById('gateWrap');
+  const demoView = document.getElementById('demoView');
+  const gateBtn = document.getElementById('gateBtn');
+
+  gateForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    gateBtn.disabled = true;
+    gateBtn.textContent = 'Wird freigeschaltet …';
+    try {
+      const response = await fetch('https://formspree.io/f/xgogoear', {
+        method: 'POST',
+        body: new FormData(gateForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        gateWrap.style.display = 'none';
+        demoView.style.display = 'block';
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      gateStatus.className = 'status error';
+      gateStatus.textContent = 'Leider ist etwas schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns an info@mintello.de.';
+      gateBtn.disabled = false;
+      gateBtn.textContent = 'Demo jetzt ansehen →';
+    }
+  });
+</script>
+
+</body>
+</html>
