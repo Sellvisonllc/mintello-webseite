@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROI-Rechner | Klara von Mintello</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    background:linear-gradient(160deg,#0D1B2A 0%,#14243a 50%,#0D1B2A 100%);
+    color:#1A2233;
+    min-height:100vh;
+    padding:48px 16px;
+    display:flex;
+    justify-content:center;
+  }
+  .wrap{width:100%;max-width:540px;}
+  .logo-row{text-align:center;margin-bottom:28px;}
+  .logo-row .brand{font-size:22px;font-weight:700;color:#fff;}
+  .logo-row .sub{font-size:14px;color:#9AA6B2;margin-top:6px;}
+  .card{
+    background:#FFFFFF;
+    border-radius:16px;
+    padding:32px 28px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.3);
+  }
+  h1{font-size:20px;font-weight:700;color:#0D1B2A;margin-bottom:8px;}
+  .intro{font-size:14px;color:#5A6472;margin-bottom:26px;line-height:1.55;}
+  label{font-size:14px;font-weight:600;color:#2C3444;display:block;margin-bottom:8px;}
+  input[type="number"]{
+    width:100%;padding:13px 14px;font-size:16px;
+    border:1.5px solid #D3D8E0;border-radius:8px;margin-bottom:26px;color:#1A2233;
+  }
+  input[type="number"]:focus{outline:none;border-color:#3E8ED9;}
+  .results{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:8px;}
+  .stat{background:#F0F6FC;border-radius:10px;padding:18px 16px;}
+  .stat .label{font-size:12px;color:#5A6472;margin-bottom:6px;}
+  .stat .value{font-size:26px;font-weight:700;color:#3E8ED9;}
+  .disclaimer{font-size:11px;color:#8A93A3;line-height:1.5;margin:16px 0 26px;}
+  .email-section{border-top:1px solid #E2E5EA;padding-top:22px;}
+  input[type="email"], input[type="text"]{
+    width:100%;padding:12px 14px;font-size:15px;
+    border:1.5px solid #D3D8E0;border-radius:8px;margin-bottom:12px;
+  }
+  button{
+    width:100%;background:#3E8ED9;color:#fff;border:none;
+    padding:13px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;
+  }
+  button:hover{background:#2E76B8;}
+  .footer-note{text-align:center;font-size:12px;color:#9AA6B2;margin-top:22px;}
+  .success{display:none;text-align:center;padding:20px 0;}
+  .success.show{display:block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo-row">
+    <div class="brand">Klara von Mintello</div>
+    <div class="sub">Automatisierte Dienstplanung für Pflegeeinrichtungen</div>
+  </div>
+
+  <div class="card">
+    <div id="form-view">
+      <h1>Wie viel Zeit und Geld können Sie sparen?</h1>
+      <p class="intro">Finden Sie in wenigen Sekunden heraus, wie viel Ihre Einrichtung durch automatisierte Dienstplanung mit Klara sparen könnte.</p>
+
+      <label for="hours">Wie viele Stunden wenden Sie pro Monat für die Dienstplanung auf?</label>
+      <input type="number" id="hours" min="0" value="20" placeholder="z.B. 20" oninput="calc()">
+
+      <div class="results">
+        <div class="stat">
+          <div class="label">Zeitersparnis / Monat</div>
+          <div class="value" id="time-out">14 Std.</div>
+        </div>
+        <div class="stat">
+          <div class="label">Kostenersparnis / Monat</div>
+          <div class="value" id="money-out">406 €</div>
+        </div>
+      </div>
+
+      <p class="disclaimer">*Berechnet auf Basis eines durchschnittlichen PDL-Stundenlohns von 29€ und einer durchschnittlichen Zeitersparnis von 70% mit Klara. Individuelle Ergebnisse können abweichen.</p>
+
+      <form id="roi-form" class="email-section" action="https://formspree.io/f/xgogoear" method="POST">
+        <label for="email">Ergebnis per E-Mail erhalten</label>
+        <input type="text" name="name" placeholder="Ihr Name (optional)">
+        <input type="email" name="email" id="email" placeholder="name@einrichtung.de" required>
+        <input type="hidden" name="quelle" value="ROI-Rechner">
+        <input type="hidden" id="hours-hidden" name="stunden_pro_monat" value="20">
+        <input type="hidden" id="time-hidden" name="zeitersparnis_std" value="14">
+        <input type="hidden" id="money-hidden" name="kostenersparnis_eur" value="406">
+        <button type="submit">Ergebnis senden</button>
+      </form>
+    </div>
+
+    <div id="success-view" class="success">
+      <h1>Danke!</h1>
+      <p class="intro">Wir haben Ihr Ergebnis erhalten und melden uns persönlich bei Ihnen.</p>
+    </div>
+  </div>
+
+  <div class="footer-note">Mintello · Waibstadt · <a href="https://mintello.de" style="color:#9AA6B2;">mintello.de</a></div>
+</div>
+
+<script>
+function calc(){
+  var raw = document.getElementById('hours').value;
+  var h = parseInt(raw, 10);
+  if (isNaN(h) || h < 0) h = 0;
+  var savedHours = Math.round(h * 0.7);
+  var savedMoney = Math.round(savedHours * 29);
+  document.getElementById('time-out').textContent = savedHours + ' Std.';
+  document.getElementById('money-out').textContent = savedMoney.toLocaleString('de-DE') + ' €';
+  document.getElementById('hours-hidden').value = h;
+  document.getElementById('time-hidden').value = savedHours;
+  document.getElementById('money-hidden').value = savedMoney;
+}
+calc();
+
+document.getElementById('roi-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(function(response){
+    if(response.ok){
+      document.getElementById('form-view').style.display = 'none';
+      document.getElementById('success-view').classList.add('show');
+    } else {
+      alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut.');
+    }
+  }).catch(function(){
+    alert('Es gab ein Problem beim Senden. Bitte versuchen Sie es erneut.');
+  });
+});
+</script>
+</body>
+</html>
