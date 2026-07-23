@@ -255,6 +255,20 @@ document.getElementById('raffle-form').addEventListener('submit', function(e){
     body: data,
     headers: { 'Accept': 'application/json' }
   }).then(reveal).catch(reveal);
+
+  // Make.com Webhook (schreibt Zeile ins Gewinnspiel-Sheet)
+  fetch('https://hook.eu1.make.com/6faak2u4we4pdl8b2au9gfajx4kfl2v1', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      datum: new Date().toLocaleString('de-DE'),
+      vorname: document.getElementById('firstname').value,
+      nachname: document.getElementById('lastname').value,
+      email: document.getElementById('email').value,
+      einrichtung: document.getElementById('einrichtung').value,
+      quelle: 'Gewinnspiel-Cullina'
+    })
+  }).catch(function(err){ console.log('Make.com Webhook fehlgeschlagen:', err); });
 });
 </script>
 
