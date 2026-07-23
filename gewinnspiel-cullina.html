@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gewinnspiel: Klara + Cullina gewinnen | Mintello</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    background:linear-gradient(160deg,#0D1B2A 0%,#14243a 50%,#0D1B2A 100%);
+    color:#1A2233;
+    min-height:100vh;
+    padding:48px 16px;
+  }
+  .wrap{max-width:720px;margin:0 auto;}
+  .logo-row{text-align:center;margin-bottom:24px;}
+  .logo-row .brand{font-size:22px;font-weight:700;color:#fff;}
+  .logo-row .sub{font-size:14px;color:#9AA6B2;margin-top:6px;}
+
+  .hero{text-align:center;margin-bottom:32px;}
+  .hero .eyebrow{
+    display:inline-block;
+    background:#C9A24B;
+    color:#0D1B2A;
+    font-size:12px;
+    font-weight:700;
+    padding:5px 12px;
+    border-radius:20px;
+    margin-bottom:16px;
+    letter-spacing:0.5px;
+  }
+  .hero h1{
+    font-size:28px;
+    font-weight:800;
+    color:#fff;
+    line-height:1.25;
+    margin-bottom:14px;
+  }
+  .hero p{
+    font-size:15px;
+    color:#B7C6D9;
+    max-width:540px;
+    margin:0 auto;
+    line-height:1.6;
+  }
+
+  .explainer{
+    background:#ffffff10;
+    border:1px solid #ffffff25;
+    border-radius:14px;
+    padding:20px 24px;
+    margin-bottom:28px;
+  }
+  .explainer p{font-size:14px;color:#D7DEE8;line-height:1.65;}
+
+  .prizes{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:12px;
+    margin-bottom:28px;
+  }
+  .prize-card{
+    background:#FFFFFF;
+    border-radius:14px;
+    padding:20px 14px;
+    text-align:center;
+  }
+  .prize-card.first{border:2px solid #C9A24B;}
+  .prize-medal{font-size:26px;margin-bottom:8px;}
+  .prize-card h3{font-size:14px;color:#0D1B2A;margin-bottom:6px;}
+  .prize-card .duration{font-size:13px;color:#5A6472;margin-bottom:10px;line-height:1.4;}
+  .prize-card .value{font-size:18px;font-weight:800;color:#3E8ED9;}
+  .prize-card .value-label{font-size:10px;color:#8A93A3;margin-top:2px;}
+
+  .prize-note{
+    text-align:center;
+    font-size:12px;
+    color:#9AA6B2;
+    margin-bottom:32px;
+    line-height:1.5;
+  }
+
+  .card{
+    background:#FFFFFF;
+    border-radius:16px;
+    padding:32px 28px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  #form-view h2{font-size:19px;font-weight:700;color:#0D1B2A;margin-bottom:4px;text-align:center;}
+  #form-view .deadline{font-size:13px;color:#C9862F;font-weight:600;margin-bottom:22px;text-align:center;}
+
+  label{font-size:14px;font-weight:600;color:#2C3444;display:block;margin-bottom:6px;}
+  input[type="text"], input[type="email"]{
+    width:100%;padding:12px 14px;font-size:15px;
+    border:1.5px solid #D3D8E0;border-radius:8px;margin-bottom:16px;
+  }
+  input:focus{outline:none;border-color:#3E8ED9;}
+
+  .checkbox-row{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:20px;
+  }
+  .checkbox-row input{margin-top:3px;width:16px;height:16px;accent-color:#0D1B2A;}
+  .checkbox-row label{font-size:12.5px;color:#5A6472;font-weight:400;line-height:1.5;margin:0;}
+  .checkbox-row a{color:#3E8ED9;}
+
+  button{
+    width:100%;background:#0D1B2A;color:#fff;border:none;
+    padding:14px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;
+  }
+  button:hover{background:#182E47;}
+
+  .bonus-box{
+    background:#F0F6FC;
+    border-radius:10px;
+    padding:14px 16px;
+    margin-top:18px;
+    font-size:12.5px;
+    color:#3B4657;
+    line-height:1.55;
+  }
+  .bonus-box strong{color:#0D1B2A;}
+
+  .disclaimer{font-size:11px;color:#8A93A3;margin-top:16px;line-height:1.5;text-align:center;}
+  .disclaimer a{color:#8A93A3;}
+
+  #success-view{display:none;text-align:center;}
+  #success-view.show{display:block;}
+  #success-view h2{font-size:20px;color:#0D1B2A;margin-bottom:10px;}
+  #success-view p{font-size:14px;color:#5A6472;line-height:1.6;}
+
+  .footer-note{text-align:center;font-size:12px;color:#9AA6B2;margin-top:24px;}
+  .footer-note a{color:#9AA6B2;}
+
+  @media (max-width:560px){
+    .prizes{grid-template-columns:1fr;}
+  }
+  .hero-img{
+    width:100%;
+    border-radius:14px;
+    margin-bottom:28px;
+    display:block;
+    box-shadow:0 20px 50px rgba(0,0,0,0.4);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="logo-row">
+    <div class="brand">Mintello</div>
+    <div class="sub">KI-Software für die Pflege</div>
+  </div>
+
+  <img class="hero-img" src="gewinnspiel-grafik.png" alt="Gewinnspiel: Klara & Cullina gratis gewinnen">
+
+  <div class="hero">
+    <p>Gewinnen Sie Klara + Cullina für Ihre Einrichtung im Wert von bis zu 7.156€ — komplett kostenlos für bis zu 12 Monate.</p>
+  </div>
+
+  <div class="explainer">
+    <p>Cullina ist unsere neue Lösung für automatisiertes Küchenmanagement in Pflegeeinrichtungen — Sonderkost-Kennzeichnung, zentrale Bestellübersicht und direkte Kommunikation zwischen Station und Küche, alles an einem Ort. In Kombination mit Klara, unserer bewährten Dienstplanungs-Lösung, entsteht ein Gesamtpaket, das Ihre Verwaltung spürbar entlastet.</p>
+  </div>
+
+  <div class="prizes">
+    <div class="prize-card first">
+      <div class="prize-medal">🥇</div>
+      <h3>1. Platz</h3>
+      <div class="duration">Klara + Cullina<br>12 Monate kostenlos</div>
+      <div class="value">7.156 €</div>
+      <div class="value-label">Wert bis zu</div>
+    </div>
+    <div class="prize-card">
+      <div class="prize-medal">🥈</div>
+      <h3>2. Platz</h3>
+      <div class="duration">Klara + Cullina<br>9 Monate kostenlos</div>
+      <div class="value">5.728 €</div>
+      <div class="value-label">Wert bis zu</div>
+    </div>
+    <div class="prize-card">
+      <div class="prize-medal">🥉</div>
+      <h3>3. Platz</h3>
+      <div class="duration">Klara + Cullina<br>6 Monate kostenlos</div>
+      <div class="value">4.300 €</div>
+      <div class="value-label">Wert bis zu</div>
+    </div>
+  </div>
+
+  <p class="prize-note">Bei weiterer Nutzung nach Ablauf der Gewinn-Laufzeit entfällt die Einrichtungsgebühr.</p>
+
+  <div class="card">
+
+    <div id="form-view">
+      <h2>Jetzt kostenlos teilnehmen</h2>
+      <div class="deadline">Teilnahmeschluss: 16.08.2026</div>
+
+      <form id="raffle-form" action="https://formspree.io/f/xgogoear" method="POST">
+        <label for="firstname">Vorname</label>
+        <input type="text" name="firstname" id="firstname" required>
+
+        <label for="lastname">Nachname</label>
+        <input type="text" name="lastname" id="lastname" required>
+
+        <label for="einrichtung">Einrichtung</label>
+        <input type="text" name="einrichtung" id="einrichtung" required>
+
+        <label for="email">E-Mail-Adresse</label>
+        <input type="email" name="email" id="email" required>
+
+        <input type="hidden" name="quelle" value="Gewinnspiel-Cullina">
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="terms" required>
+          <label for="terms">Ich habe die <a href="teilnahmebedingungen.html" target="_blank">Teilnahmebedingungen</a> gelesen und akzeptiere sie.</label>
+        </div>
+
+        <button type="submit">Jetzt teilnehmen</button>
+      </form>
+
+      <div class="bonus-box">
+        <strong>Doppelte Gewinnchance:</strong> Folgen Sie uns auf Facebook und teilen Sie diesen Beitrag.
+      </div>
+
+      <p class="disclaimer">Teilnahme kostenlos, keine Kaufverpflichtung. Die Gewinner werden per Zufallsgenerator ermittelt und per E-Mail benachrichtigt. <a href="teilnahmebedingungen.html" target="_blank">Vollständige Teilnahmebedingungen</a>.</p>
+    </div>
+
+    <div id="success-view">
+      <h2>Vielen Dank für Ihre Teilnahme!</h2>
+      <p>Wir haben Ihre Anmeldung erhalten. Die Gewinner werden nach Ablauf des Teilnahmezeitraums per Zufallsgenerator ermittelt und per E-Mail benachrichtigt.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-note">Mintello · Waibstadt · <a href="https://mintello.de">mintello.de</a></div>
+
+</div>
+
+<script>
+document.getElementById('raffle-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+
+  function reveal(){
+    document.getElementById('form-view').style.display = 'none';
+    document.getElementById('success-view').classList.add('show');
+  }
+
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(reveal).catch(reveal);
+});
+</script>
+
+</body>
+</html>
